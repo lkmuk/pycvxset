@@ -75,8 +75,9 @@ Repository = "https://github.com/merlresearch/pycvxset"
 file = "README.md"
 content-type = "text/markdown"
 
-[tool.setuptools]
-packages = ["pycvxset"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pycvxset", "pycvxset.*"]
 
 [tool.pyright]
 pythonVersion = "3.9"
