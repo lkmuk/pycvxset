@@ -64,7 +64,16 @@ pycvxset supports Python 3.9+ on Ubuntu, Windows, and MacOS. As described in [py
 ### Installation
 
 Refer to [.github/workflows](https://github.com/merlresearch/pycvxset/tree/main/.github/workflows) for exact steps to install pycvxset for different OSes. These steps are summarized below:
-1. OS-dependent pre-installation steps:
+1. OS-dependent/environment pre-installation steps:
+   * **Conda**
+     Example using Miniconda (not Anaconda)
+     ```bash
+     $ # somehow first activate your virtual environment
+     (env) $ # now activated
+     (env) $ mamba install gmp cddlib "python>=3.9" # tested on Linux, probably works also on Windows and MacOS
+     ```
+
+
    * **Ubuntu**: Install [gmp](https://gmplib.org/).
      ```
      $ sudo apt-get install libgmp-dev libcdd-dev python3-dev
@@ -81,6 +90,12 @@ Refer to [.github/workflows](https://github.com/merlresearch/pycvxset/tree/main/
      See [https://matplotlib.org/3.5.1/users/explain/backends.html#selecting-a-backend](https://matplotlib.org/3.5.1/users/explain/backends.html#selecting-a-backend) for more details.
 2. Clone the pycvxset repository into a desired folder `PYCVXSET_DIR`.
 3. Run `pip install -e .` in the folder `PYCVXSET_DIR`.
+
+**Tip**: If you are not going to develop `pycvxset`, then consider replacing steps 2 to 3 with a direct pip install of `pycvxset`, e.g.,
+```bash
+(env) $ pip install git+https://github.com/lkmuk/pycvxset@main
+```
+
 
 **Sanity check**: Check your installation by running  `python3 examples/pycvxset_diag.py` in the folder `PYCVXSET_DIR`. The script should generate a figure with two subplots, each generated using pycvxset.
   - *Left subplot*: A 3D plot of two polytopes (one at the origin, and the other translated and rotated). You can interact with this plot using your mouse.
